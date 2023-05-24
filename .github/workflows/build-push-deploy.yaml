@@ -4,6 +4,10 @@ on: push
   # pull_request:
   #   types: [closed]
 
+env:
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+
 jobs:
   build-and-upload-to-dockerhub:
     # if: github.event.pull_request.merged == true
@@ -11,6 +15,6 @@ jobs:
     with:
       build-the-app: true
       docker-image-name: aks-react
-      docker-username: ${{ secrets.DOCKERHUB_USERNAME }}
-      docker-password: ${{ secrets.DOCKERHUB_TOKEN }}
+      docker-username: ${{ env.DOCKERHUB_USERNAME }}
+      docker-password: ${{ env.DOCKERHUB_TOKEN }}
       
