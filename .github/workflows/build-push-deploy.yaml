@@ -12,3 +12,4 @@ jobs:
       build-the-app: true
       docker-image-name: aks-react
       
+      
