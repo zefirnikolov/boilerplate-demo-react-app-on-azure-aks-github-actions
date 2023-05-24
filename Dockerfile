@@ -1,6 +1,5 @@
 FROM registry.access.redhat.com/ubi9
 
-# This uses /demo/ as main web directory
 RUN yum -y install nginx && yum clean all
 
 RUN rm -rf /etc/nginx/conf.d/* && \
