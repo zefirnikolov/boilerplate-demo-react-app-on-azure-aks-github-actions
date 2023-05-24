@@ -15,13 +15,13 @@ RUN mkdir -p /var/lib/nginx/tmp/client_body && \
     chown -R johnnycash:johnnycash /usr/share/nginx /var/log/nginx /var/lib/nginx /var/run/nginx.pid && \
     chmod -R 755 /usr/share/nginx /var/log/nginx /var/lib/nginx /var/run/nginx.pid
 
-RUN mkdir -p /usr/share/nginx/html/demo && \
-    chown -R johnnycash:johnnycash /usr/share/nginx/html/demo && \
-    chmod -R 755 /usr/share/nginx/html/demo
+RUN mkdir -p /usr/share/nginx/html && \
+    chown -R johnnycash:johnnycash /usr/share/nginx/html && \
+    chmod -R 755 /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY build/ /usr/share/nginx/html/demo
+COPY build/ /usr/share/nginx/html
 
 USER johnnycash
 
