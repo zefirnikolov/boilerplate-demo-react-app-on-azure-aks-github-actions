@@ -10,7 +10,7 @@ jobs:
     # if: github.event.pull_request.merged == true
     uses: zefirnikolov/custom-github-actions/.github/workflows/reusable-react-docker-build-and-push.yaml@main
     with:
-      build-the-app: true
+      build-the-app: false
       docker-image-name: aks-react
 
     secrets:

@@ -5,4 +5,6 @@
 *.json text eol=lf
 *.md text eol=lf
 *.txt text eol=lf
+*.yaml text eol=lf
+*.tpl text eol=lf
 .gitignore text eol=lf
