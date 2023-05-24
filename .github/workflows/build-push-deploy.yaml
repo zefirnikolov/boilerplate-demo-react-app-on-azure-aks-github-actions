@@ -30,3 +30,4 @@ jobs:
       azure-credentials: ${{ secrets.AZURE_K8S_CREDENTIALS }}
       aks-cluster-name: ${{ secrets.AZURE_CLUSTER_NAME }}
       resource-group: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
+
