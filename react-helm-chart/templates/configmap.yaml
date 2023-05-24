@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+# A dummy configmap - only for a template
+metadata:
+  name: {{ include "react-helm-chart.fullname" . }}-config
+data:
+  SUBPATH: {{ .Values.configMap.subpath }}
