@@ -12,7 +12,7 @@ jobs:
     with:
       build-the-app: true
       docker-image-name: aks-react
-
+    # secrets: inherit            -> this will pass all the secrets from the caller workflow to the reusable workflow, and you can use them there!
     secrets:
       docker-username: ${{ secrets.DOCKERHUB_USERNAME }}
       docker-password: ${{ secrets.DOCKERHUB_TOKEN }}  
@@ -25,7 +25,8 @@ jobs:
       helm-chart-name: react-helm-chart
       helm-deployment-name: app
       additional-helm-commands: --set image.tag=${{ github.run_number }}
-    
+    # instead of passing secrets one by one:
+    # secrets: inherit            -> this will pass all the secrets from the caller workflow to the reusable workflow, and you can use them there!
     secrets:
       azure-credentials: ${{ secrets.AZURE_K8S_CREDENTIALS }}
       aks-cluster-name: ${{ secrets.AZURE_CLUSTER_NAME }}
