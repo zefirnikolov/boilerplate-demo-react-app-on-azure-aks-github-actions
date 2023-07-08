@@ -1,13 +1,13 @@
 name: Build, Push, Deploy
 
-on: [push]
-  # pull_request:
-  #   types: [closed]
+on:
+  pull_request:
+    types: [closed]
 
 
 jobs:
   build-and-upload-to-dockerhub:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     uses: zefirnikolov/custom-github-actions/.github/workflows/reusable-react-docker-build-and-push.yaml@main
     with:
       build-the-app: true
@@ -17,7 +17,7 @@ jobs:
       docker-username: ${{ secrets.DOCKERHUB_USERNAME }}
       docker-password: ${{ secrets.DOCKERHUB_TOKEN }}  
   deploy-to-k8s:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     needs: [build-and-upload-to-dockerhub]
     uses: zefirnikolov/custom-github-actions/.github/workflows/reusable-deploy-helm-chart-to-aks.yaml@main
     with:
